@@ -53,3 +53,18 @@ ALTER TABLE produtos
 ```sql
 DROP TABLE fabricantes;
 ```
+<!-- ____________________________________________________________________ -->
+<!-- Acessar banco de dados -->
+
+### Acessar banco de dados
+```sql
+USE DATABASE vendas;
+```
+<!-- ____________________________________________________________________ -->
+<!-- Adicionar campo/coluna em uma tabela-->
+
+### Adicionar campo/coluna em uma tabela
+```sql
+ALTER TABLE produtos ADD fabricantes_id INT NOT NULL
+AFTER preco;
+```
