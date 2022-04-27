@@ -46,3 +46,10 @@ ALTER TABLE produtos
     # A chave estrangeira deve fazer referência à chave primaria
     FOREIGN KEY(fabricante_id) REFERENCES fabricantes(id)
 ```
+<!-- ____________________________________________________________________ -->
+<!-- Apagar tabela -->
+
+### Apagar tabela
+```sql
+DROP TABLE fabricantes;
+```
