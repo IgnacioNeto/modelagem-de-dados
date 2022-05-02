@@ -101,10 +101,13 @@ SELECT * FROM produtos WHERE preco >=5000 AND preco < 8000;
 
 -- Consulta nome, preco de produtos da Apple ou Microsoft
 SELECT nome, preco FROM produtos WHERE fabricante_id = 3 OR fabricante_id = 8;
+-- Outra maneira usando função IN(Lista)
+SELECT nome, preco FROM produtos WHERE fabricante_id IN(3, 8);
+
 
 -- Monte uma consulta que traga nome, preco, e quantidade
 -- de todos os produtos exceto os do fabricante apple
-SELECT nome, preco, quantidade FROM produtos WHERE NOT fabricante_id = 3 ;
+SELECT nome, preco, quantidade FROM produtos WHERE NOT fabricante_id = 3 ; # versão 1 usando NOT
 
-
+SELECT nome, preco, quantidade FROM produtos WHERE fabricante_id != 3 ; # versão 2 usando operador != (diferente)
 ```
