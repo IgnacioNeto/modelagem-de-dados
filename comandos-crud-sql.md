@@ -86,8 +86,25 @@ INSERT INTO produtos (nome, descricao, preco, quantidade, fabricante_id) VALUES(
 
 ```
 <!-- ___________________________________________________________ -->
-## Resumo
+## Resumo (SELECT)
 ### Ler dados da tabela produtos
 ```sql
 SELECT * FROM produtos;
+SELECT nome, preco FROM produtos;
+SELECT nome FROM produtos WHERE preco < 5000;
+SELECT nome, descricao FROM produtos WHERE fabricante_id = 3; #Apple
+```
+### Operadores lógicos: E OU NÂO
+
+```sql
+SELECT * FROM produtos WHERE preco >=5000 AND preco < 8000;
+
+-- Consulta nome, preco de produtos da Apple ou Microsoft
+SELECT nome, preco FROM produtos WHERE fabricante_id = 3 OR fabricante_id = 8;
+
+-- Monte uma consulta que traga nome, preco, e quantidade
+-- de todos os produtos exceto os do fabricante apple
+SELECT nome, preco, quantidade FROM produtos WHERE NOT fabricante_id = 3 ;
+
+
 ```
