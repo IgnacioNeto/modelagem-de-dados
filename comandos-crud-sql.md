@@ -84,5 +84,10 @@ INSERT INTO produtos (nome, descricao, preco, quantidade, fabricante_id) VALUES(
     7 -- Positivo
 );
 
-    ```
-    -- _______________________________________________________________
+```
+<!-- ___________________________________________________________ -->
+## Resumo
+### Ler dados da tabela produtos
+```sql
+SELECT * FROM produtos;
+```
