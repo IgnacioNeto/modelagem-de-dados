@@ -111,3 +111,22 @@ SELECT nome, preco, quantidade FROM produtos WHERE NOT fabricante_id = 3 ; # ver
 
 SELECT nome, preco, quantidade FROM produtos WHERE fabricante_id != 3 ; # versão 2 usando operador != (diferente)
 ```
+<!-- ___________________________________________________________ -->
+### Filtros
+```sql
+-- Filtro que ordena pelo nome (AZ) Crescente
+SELECT nome, preco  FROM produtos ORDER BY nome;
+-- Filtro que ordena pelo nome (ZA) Decrescente
+SELECT nome, preco  FROM produtos ORDER BY nome DESC;
+-- Like + operador coringa % (significa qualquer texto)
+SELECT nome, descricao  FROM produtos WHERE descricao LIKE '%processador%';
+```
+
+<!-- ___________________________________________________________ -->
+### Operações e funções de agregação
+```sql
+-- Traz o resultado da soma de todos os preços
+SELECT SUM(preco) from produtos;
+-- Traz o resultado da soma de todos os preços com ALIAS (Apelido)
+SELECT SUM(preco) AS TOTAL from produtos;
+```
