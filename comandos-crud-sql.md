@@ -116,8 +116,10 @@ SELECT nome, preco, quantidade FROM produtos WHERE fabricante_id != 3 ; # versã
 ```sql
 -- Filtro que ordena pelo nome (AZ) Crescente
 SELECT nome, preco  FROM produtos ORDER BY nome;
+
 -- Filtro que ordena pelo nome (ZA) Decrescente
 SELECT nome, preco  FROM produtos ORDER BY nome DESC;
+
 -- Like + operador coringa % (significa qualquer texto)
 SELECT nome, descricao  FROM produtos WHERE descricao LIKE '%processador%';
 ```
@@ -127,6 +129,36 @@ SELECT nome, descricao  FROM produtos WHERE descricao LIKE '%processador%';
 ```sql
 -- Traz o resultado da soma de todos os preços
 SELECT SUM(preco) from produtos;
+
 -- Traz o resultado da soma de todos os preços com ALIAS (Apelido)
 SELECT SUM(preco) AS TOTAL from produtos;
+
+-- Traz o resultado da soma da quantidade
+SELECT SUM(quantidade) AS "Quantidade em estoque" from produtos;
+
+-- Traz o resultado da soma da quantidade da Apple
+SELECT SUM(quantidade) AS "Quantidade em estoque" from produtos WHERE fabricante_id = 3;
+
+-- Average Média dos preços
+SELECT AVG(preco) AS "Média dos preços" from produtos;
+
+-- Average Média dos preços (Com 2 casas de precisão)
+SELECT ROUND(AVG(preco), 2) AS "Média dos preços" from produtos;
+
+-- Contagem de produtos
+SELECT COUNT(id) AS "Quantidade de produtos" from produtos;
+
+-- Contagem de fabricantes evitando a duplicidade em campos que não são chave-primária (Distinct)
+SELECT COUNT(DISTINCT fabricante_id) AS "Quantidade de fabricantes" from produtos;
+
+-- Traz o Total (preco unitário * quantidade total)
+SELECT nome, preco, quantidade, (preco * quantidade) AS "Total"  from produtos;
+
+```
+<!-- ___________________________________________________________ -->
+### Agrupamentos
+```sql
+-- Retorna os preços de cada fabricante (Agrupados)
+SELECT fabricante_id, SUM(preco) AS TOTAL from produtos GROUP BY fabricante_id;
+
 ```
