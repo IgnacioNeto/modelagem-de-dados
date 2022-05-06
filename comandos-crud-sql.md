@@ -202,5 +202,10 @@ SELECT produtos.nome AS Produto, fabricantes.nome AS Fabricante FROM produtos IN
 -- Fabricante, soma dos preços e quantidade de produtos
 SELECT fabricantes.nome AS Fabricante, SUM(produtos.preco) AS Total, COUNT(produtos.fabricante_id) AS "QTD de produtos" FROM produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id GROUP BY Fabricante ORDER BY Total;
 
+-- Trazer a quantidade de produtos de cada fabricante (Somente dos fabricantes que tem produtos cadastrados) usando "INNER JOIN"
+SELECT fabricantes.nome AS Fabricante, COUNT(produtos.id) AS "QTD de produtos" FROM produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id GROUP BY Fabricante;
+
+-- Trazer a quantidade de produtos de cada fabricante (Mesmo dos fabricantes que não tem produtos) usando "RIGHT JOIN"
+SELECT fabricantes.nome AS Fabricante, COUNT(produtos.id) AS "QTD de produtos" FROM produtos RIGHT JOIN fabricantes ON produtos.fabricante_id = fabricantes.id GROUP BY Fabricante;
 
 ```
