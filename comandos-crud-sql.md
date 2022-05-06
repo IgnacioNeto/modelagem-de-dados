@@ -187,3 +187,20 @@ DELETE FROM fabricantes WHERE id = 4; --LG
 DELETE FROM produtos WHERE preco <= 2000 AND preco > 500;
 
 ```
+<!-- ___________________________________________________________ -->
+### Consulta em duas ou mais tabelas (Junção)
+```sql
+-- Consultar campos de diferentes tabelas (Produtos x Fabricantes)
+SELECT produtos.nome, fabricantes.nome FROM produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id;
+
+-- (Produtos x Fabricantes) melhorada exibindo (TÍTULO)
+SELECT produtos.nome AS Produto, fabricantes.nome AS Fabricante FROM produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id;
+
+-- (Produtos x Fabricantes) melhorada exibindo (TÍTULO) e classificada por (PRODUTOS) A-Z e depois por (FABRICANTES) A-Z
+SELECT produtos.nome AS Produto, fabricantes.nome AS Fabricante FROM produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id ORDER BY produtos.nome, fabricantes.nome;
+
+-- Fabricante, soma dos preços e quantidade de produtos
+SELECT fabricantes.nome AS Fabricante, SUM(produtos.preco) AS Total, COUNT(produtos.fabricante_id) AS "QTD de produtos" FROM produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id GROUP BY Fabricante ORDER BY Total;
+
+
+```
